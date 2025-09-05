@@ -1,19 +1,27 @@
 package com.tp2.leapyear;
 
 import org.junit.jupiter.api.Test;
-import static org.junit.jupiter.api.Assertions.assertEquals;
+import static org.junit.jupiter.api.Assertions.*;
 
 class LeapYearTest {
 
-    // TODO: Replace these lines with your tests
     @Test
-    void exampleTest(){
-        assertEquals(4, 2 + 1);
+    void yearDivisibleBy4IsLeapYear() {
+        assertTrue(new LeapYear().isLeapYear(2004));
     }
 
-//    Missing tests:
-//
-//- A year is a leap year if it is divisible by 4
-//- A year is not a leap year if it is divisible by 100
-//- A year is a leap year if it is divisible by 400
+    @Test
+    void yearNotDivisibleBy4IsNotLeapYear() {
+        assertFalse(new LeapYear().isLeapYear(2001));
+    }
+
+    @Test
+    void yearDivisibleBy100IsNotLeapYear() {
+        assertFalse(new LeapYear().isLeapYear(1900));
+    }
+
+    @Test
+    void yearDivisibleBy400IsLeapYear() {
+        assertTrue(new LeapYear().isLeapYear(2000));
+    }
 }
